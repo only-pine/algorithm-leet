@@ -4,6 +4,22 @@
  * @return {string}
  */
 var stringHash = function(s, k) {
+    let sum = 0;
+    let result = "";
+
+    for (let index = 0; index <= s.length; index++) {
+        if ((index / k > 0 && index % k === 0) || index === s.length) {
+            result += String.fromCharCode(sum % 26 + 97);
+            sum = 0;
+        }
+
+        sum += s.charCodeAt(index) - 97;
+    }
+
+    return result;
+};
+
+/*
     const hashedChar = ['a', 'b', 'c', 'd', 
                         'e', 'f', 'g', 'h', 
                         'i', 'j', 'k', 'l', 
@@ -23,7 +39,7 @@ var stringHash = function(s, k) {
         copiedArray.forEach((arr) => {
             sum += hashedChar.indexOf(arr);
         })
-        
+
         result.push(sum % 26);
     }
 
@@ -32,4 +48,4 @@ var stringHash = function(s, k) {
     })
 
     return resultStr;
-};
+*/

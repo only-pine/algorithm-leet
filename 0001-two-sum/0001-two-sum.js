@@ -4,14 +4,15 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    for (let index = 0; index < nums.length; index++) {
-        let subIndex = index + 1;
+    const map  = new Map();
 
-        while (subIndex < nums.length) {
-            if (nums[index] + nums[subIndex] === target) {
-                return [index, subIndex];
-            }
-            subIndex ++;
+    for (let index = 0; index < nums.length; index++) {
+        const rest = target - nums[index];
+
+        if (map.has(rest) && map.get(rest) !== index) {
+            return [map.get(rest), index];
         }
+
+        map.set(nums[index], index);
     }
 };

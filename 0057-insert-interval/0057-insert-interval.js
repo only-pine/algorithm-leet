@@ -22,15 +22,7 @@ var insert = function (intervals, newInterval) {
                 }
                 isIncluded = true;
             } else {
-                if (!(newInterval[0] < interval[0]
-                    && newInterval[0] < interval[1]
-                    && newInterval[1] < interval[0]
-                    && newInterval[1] < interval[1]) &&
-                    !(newInterval[0] > interval[0]
-                    && newInterval[0] > interval[1]
-                    && newInterval[1] > interval[0]
-                    && newInterval[1] > interval[1])
-                    ) {
+                if (!(newInterval[1] < interval[0] || newInterval[0] > interval[1])) {
                     if (startInterval === null) {
                         startInterval = Math.min(interval[0], newInterval[0]);
                     }

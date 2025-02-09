@@ -8,11 +8,14 @@ var isValid = function (s) {
     for (let index = 0 ; index < s.length ; index++) {
         let char = s.charAt(index);
         switch(char) {
-            case '(': array.push(')');
+            case '(': 
+                array.push(')');
                 break;
-            case '[': array.push(']');
+            case '[':  
+                array.push(']');
                 break;
-            case '{': array.push('}');
+            case '{': 
+                array.push('}');
                 break;
             default:
                 if (char !== array.pop()) {

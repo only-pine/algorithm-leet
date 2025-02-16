@@ -26,9 +26,9 @@ var letterCombinations = function(digits) {
         repeatedCount = digitsArray.reduce((acc,cur, index) => {
             if (index === 0) {
                 return 1;
-            } else {
-                return acc * (phoneNumberArray[digitsArray[index]].length);
-            }
+            } 
+
+            return acc * (phoneNumberArray[digitsArray[index]].length);
         }, 1);
     }
 

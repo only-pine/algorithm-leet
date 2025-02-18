@@ -13,21 +13,12 @@ var romanToInt = function(s) {
         "M" : 1000
     }
 
-    const array = Array.from(s).reverse();
     let sum = 0;
-
-    for (let index = 0; index < array.length; index++) {
-        let prevRoman = array[index - 1];
-        let thisRoman = array[index];
-        
-        if (
-            ((prevRoman === "V" || prevRoman === "X") && thisRoman === "I") ||
-            ((prevRoman === "L" || prevRoman === "C") && thisRoman === "X") ||
-            ((prevRoman === "D" || prevRoman === "M") && thisRoman === "C")
-        ) {
-            sum -= roman[thisRoman];
+    for (let index = 0; index < s.length; index++) {
+        if (roman[s[index]] < roman[s[index + 1]]) {
+            sum -= roman[s[index]];
         } else {
-            sum += roman[thisRoman];
+            sum += roman[s[index]];
         }
     }
     

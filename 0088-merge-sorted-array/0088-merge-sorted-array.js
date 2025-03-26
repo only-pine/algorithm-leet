@@ -6,15 +6,13 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function(nums1, m, nums2, n) {
-    let index = 0, subIndex = 0;
+    for (let index = m; index < nums1.length; index++) {
+        nums1[index] = nums2[index - m];
 
-    while (index < nums1.length) {
-        if (nums1[index] > nums2[subIndex] || index >= m + subIndex) {
-            nums1.splice(index, 0, nums2[subIndex]);
-            nums1.pop();
-            console.log(nums1);
-            subIndex++;
+        let a = index - 1, b = index;
+        while (nums1[a] > nums1[b]) {
+            [nums1[a], nums1[b]] = [nums1[b], nums1[a]];
+            a -= 1, b -=1;
         }
-        index++;
     }
 };

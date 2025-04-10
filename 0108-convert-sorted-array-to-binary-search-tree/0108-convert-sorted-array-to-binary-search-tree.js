@@ -13,12 +13,8 @@
 var sortedArrayToBST = function(nums) {
     if (nums.length === 0) return null;
 
-    const tree = new TreeNode();
     let middle = Math.floor(nums.length / 2);
-
-    tree.val = nums[middle];
-    tree.left = sortedArrayToBST(nums.slice(0, middle));
-    tree.right = sortedArrayToBST(nums.slice(middle + 1));
+    const tree = new TreeNode(nums[middle], sortedArrayToBST(nums.slice(0, middle)), sortedArrayToBST(nums.slice(middle + 1)));
 
     return tree;
 };

@@ -11,18 +11,10 @@
  * @return {TreeNode}
  */
 var sortedArrayToBST = function(nums) {
-    const treeNode = new TreeNode();
-
     function convertTreeNode(array) {
-        const tree = new TreeNode();
-
         if (array.length === 0) return null;
 
-        // if (array.length === 1) {
-        //     tree.val = array[0];
-        //     return tree;
-        // }
-
+        const tree = new TreeNode();
         let middle = Math.floor(array.length / 2);
 
         tree.val = array[middle];

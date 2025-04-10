@@ -11,18 +11,14 @@
  * @return {TreeNode}
  */
 var sortedArrayToBST = function(nums) {
-    function convertTreeNode(array) {
-        if (array.length === 0) return null;
+    if (nums.length === 0) return null;
 
-        const tree = new TreeNode();
-        let middle = Math.floor(array.length / 2);
+    const tree = new TreeNode();
+    let middle = Math.floor(nums.length / 2);
 
-        tree.val = array[middle];
-        tree.left = convertTreeNode(array.slice(0, middle));
-        tree.right = convertTreeNode(array.slice(middle + 1));
+    tree.val = nums[middle];
+    tree.left = sortedArrayToBST(nums.slice(0, middle));
+    tree.right = sortedArrayToBST(nums.slice(middle + 1));
 
-        return tree;
-    }
-
-    return convertTreeNode(nums);
+    return tree;
 };

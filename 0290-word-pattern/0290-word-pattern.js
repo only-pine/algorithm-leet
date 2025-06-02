@@ -14,9 +14,9 @@ var wordPattern = function(pattern, s) {
     }
 
     for (let index = 0; index < sArray.length; index++) {
-        if (!map.get(pattern[index])) { //map에 해당 키가 없는 경우, map에 키-쌍 저장함
+        if (!map.get(pattern[index])) { 
             map.set(pattern[index], sArray[index]);
-        } else if (map.get(pattern[index]) !== sArray[index]) { //map에 저장된 값과 배열의 값이 다른 경우
+        } else if (map.get(pattern[index]) !== sArray[index]) {
             return false;
         } 
     }

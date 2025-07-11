@@ -3,19 +3,15 @@
  * @return {number[]}
  */
 var minOperations = function(boxes) {
-    const result = new Array(boxes.length).fill(0);
-    let index = 0, subIndex = 0;
-
-    while (boxes[index] !== undefined) {
-        while (boxes[subIndex] !== undefined) {
-            if (boxes[subIndex] === "1" && index !== subIndex) {
+    const length = boxes.length;
+    const result = new Array(length).fill(0);
+    
+    for (let index = 0; index < length; index++) {
+        for (let subIndex = 0; subIndex < length; subIndex++) {
+            if (index !== subIndex && boxes[subIndex] === "1") {
                 result[index] += Math.abs(index - subIndex);
             }
-            subIndex++;
         }
-
-        index += 1;
-        subIndex = 0;
     }
 
     return result;

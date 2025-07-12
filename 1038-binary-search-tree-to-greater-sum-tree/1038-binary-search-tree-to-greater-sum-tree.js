@@ -19,11 +19,10 @@ var bstToGst = function(root, acc = 0) {
     if (root === null) return null;
 
     let sum = root.val + plusNode(root.right) + acc;
-
+    
     const tree = new TreeNode(sum);
     tree.left = bstToGst(root.left, sum);
     tree.right = bstToGst(root.right, acc);
 
-    console.log(tree);
     return tree;
 };

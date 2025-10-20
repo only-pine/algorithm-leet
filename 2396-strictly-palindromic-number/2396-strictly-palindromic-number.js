@@ -8,17 +8,12 @@ var isStrictlyPalindromic = function(n) {
 
     while (result && base <= n - 2) {
         let word = n.toString(base);
+        let length = word.length;
 
-        let left, right;
-        if (word.length % 2 === 0) {
-            left = (word.length / 2) - 1;
-            right = left + 1;
-        } else {
-            left = Math.floor(word.length / 2) - 1;
-            right = left + 2;
-        }
+        let left = length % 2 ? Math.floor(length / 2) - 1 : (length / 2) - 1;
+        let right = length % 2 ? left + 2 : left + 1;
 
-        while (result && left >= 0 && right < word.length) {
+        while (result && left >= 0 && right < length) {
             if (word[left] === word[right]) {
                 left--;
                 right++;

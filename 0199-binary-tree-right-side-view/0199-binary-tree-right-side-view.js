@@ -12,7 +12,6 @@
  */
 var rightSideView = function(root) {
     const nodes = [];
-    const result = [];
 
     function checkNodes(level, root) {
         if (!root) {
@@ -26,10 +25,6 @@ var rightSideView = function(root) {
     }
 
     checkNodes(0, root);
-
-    for (let index = 0; index < nodes.length; index++) {
-        result.push(nodes[index]);
-    }
     
-    return result;
+    return nodes;
 };
